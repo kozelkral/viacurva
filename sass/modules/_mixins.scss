@@ -1,0 +1,59 @@
+
+@mixin flex($props) {
+  -ms-flex: $props;
+  -moz-flex: $props;
+  -webkit-flex: $props;
+  flex: $props;
+}
+@mixin transform($props) {
+  -ms-transform: $props;
+  -moz-transform: $props;
+  -webkit-transform: $props;
+  transform: $props;
+}
+@mixin transition($props) {
+  -o-transition: $props;
+  -moz-transition: $props;
+  -webkit-transition: $props;
+  transition: $props;
+}
+@mixin keyframes($name) {
+  @-o-keyframes #{$name} { @content; }
+  @-moz-keyframes #{$name} { @content; }
+  @-webkit-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; }
+}
+@mixin animation($name, $props) {
+  @if $name == 'null' {
+    -o-animation: $props;
+    -moz-animation: $props;
+    -webkit-animation: $props;
+    animation: $props;
+  } @else {
+    -o-animation: $name $props;
+    -moz-animation: $name $props;
+    -webkit-animation: $name $props;
+    animation: $name $props;
+  }
+}
+@mixin user-select($props) {
+  -webkit-user-select: $props;
+  -moz-user-select: $props;
+  -khtml-user-select: $props;
+  -ms-user-select: $props;
+}
+@mixin linear-gradient($name, $props) {
+  #{$name}: -o-linear-gradient(#{$props});
+  #{$name}: -moz-linear-gradient(#{$props});
+  #{$name}: -webkit-linear-gradient(#{$props});
+  #{$name}: linear-gradient(#{$props});
+}
+@mixin filter($props) {
+  -webkit-filter: $props;
+  filter: $props;
+}
+@mixin box-shadow($props) {
+    -moz-box-shadow: $props;
+    -webkit-box-shadow: $props;
+    box-shadow: $props;
+}

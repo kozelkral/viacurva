@@ -1,0 +1,28 @@
+{
+  "name": "viacurva",
+  "version": "1.0.0",
+  "description": "Via Curva Website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kozelkral/viacurva.git"
+  },
+  "keywords": [
+    "music",
+    "development",
+    "composing",
+    "prose"
+  ],
+  "author": "Watson Grey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kozelkral/viacurva/issues"
+  },
+  "homepage": "https://github.com/kozelkral/viacurva#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
