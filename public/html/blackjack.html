@@ -3,7 +3,7 @@
 	<title>Blackjack</title>
 	<style>
 		body {
-			background: url("background.jpg") no-repeat fixed;
+			background: url("/images/background.jpg") no-repeat fixed;
 			background-size: cover;
 			font-family: "Georgia", serif;
 			font-size: 1.2em;
@@ -11,7 +11,7 @@
 			text-align: center;
 		}
 		#main_panel {
-			background: url("table.jpg") no-repeat;
+			background: url("/images/table.jpg") no-repeat;
 			background-size: cover;
 			width: 800px;
 			margin-left: auto;
@@ -113,7 +113,7 @@
 			border-bottom: 1px solid white;
 		}
 	</style>
-	<script src="blackjack.js"></script>
+	<script src="/js/blackjack.js"></script>
 </head>
 
 <body>
@@ -123,23 +123,23 @@
 			<p id="message"><br />Click 'New Game' to begin!</p>
 			<div id="bank_input" class="input" contenteditable="true"></div>
 			</div>
-			
+
 			<div id="card_table">
 				<table>
 					<tr id="dealer"></tr>
 					<tr id="player"></tr>
 				</table>
 			</div>
-		
+
 		</div>
-		
+
 		<div id="button_panel">
 			<div id="new_game" class="button button-active">New Game</div>
 			<div id="hit" class="button button-disabled">Hit</div>
 			<div id="stand" class="button button-disabled">Stand</div>
 			<div id="cash_out" class="button button-disabled">Cash Out</div>
 		</div>
-		
+
 		<div id="bet_panel">
 			<div class="bet-info">Your Bet</div>
 			<div class="bet-info">
@@ -151,6 +151,6 @@
 			<div class="bet-info"><p><span id="p"></span><br />
 				<span id="d"></span></p></div>
 		</div>
-		
+
 	</div>
 </body>

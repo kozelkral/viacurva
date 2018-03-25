@@ -1,5 +1,5 @@
-window.onload = (function() {	
-	
+window.onload = (function() {
+
 	/*
 	The following defines 3 constructors for objects used in this game of
 	Blackjack. They are: Card, which specifies a suit and value; Hand, which
@@ -7,7 +7,7 @@ window.onload = (function() {
 	which is an array of Card objects containing one of each combination for
 	a total of 52 cards, excluding Jokers.
 	*/
-	
+
 	// suit parameter is any of the strings: spades, clubs, hearts, diamonds
 	// value paramter is any of: 1,2,3,4,5,6,7,8,9,10,jack,queen,king,ace
 	function Card(suit, value) {
@@ -37,7 +37,7 @@ window.onload = (function() {
 		var card, x, y;
 		if (isCardUp) {
 			card = makeEl("div","card");
-			
+
 			switch (this.suit) {
 			case "spades":
 				y = 375;
@@ -52,7 +52,7 @@ window.onload = (function() {
 				y = 125;
 				break;
 			}
-			
+
 			switch (this.value) {
 			case "ace":
 				x = 0;
@@ -94,16 +94,16 @@ window.onload = (function() {
 				x = 1200;
 				break;
 			}
-			
-			card.style.background = "url(cards.png) -" + x + "px -" + y + "px";
+
+			card.style.background = "url(/images/cards.png) -" + x + "px -" + y + "px";
 			node.appendChild(card);
 		} else {
 			card = makeEl("div","card");
-			card.style.background = "url(cards.png) -200px -500px";
+			card.style.background = "url(/images/cards.png) -200px -500px";
 			node.appendChild(card);
 		}
 	};
-	
+
 	// defines the Hand object that will track what cards are in play for each
 	// player
 	function Hand(player) {
@@ -144,13 +144,13 @@ window.onload = (function() {
 			val += this.cards[i].getValue();
 			if (this.cards[i].value == "ace") isAce = true;
 		}
-		
+
 		if (isAce && val + 10 <= 21)
 			val += 10;
-		
+
 		return val;
 	};
-	
+
 	// defines the Deck object that will hold each possible Card and provide
 	// appropriate methods
 	function Deck() {
@@ -159,7 +159,7 @@ window.onload = (function() {
 		var suits = ["spades","clubs","hearts","diamonds"];
 		var vals = [2,3,4,5,6,7,8,9,10,"jack","queen","king","ace"];
 		var cardCt = 0;
-		
+
 		for (var s = 0; s < suits.length; s++) {
 			for (var v = 0; v < vals.length; v++) {
 				this.cards[cardCt] = new Card(suits[s],vals[v]);
@@ -189,14 +189,14 @@ window.onload = (function() {
 			return this.cards[this.used - 1];
 		}
 	};
-	
+
 	/* -----------------------------------------------------------------------------
 	The following begins the implementation of the actual Blackjack game details
 	*/
-	
+
 	// start by implementing the game of Blackjack with necessary high scope
 	// variables
-	
+
 	var deck = new Deck(),			// the deck to be used
 	player = new Hand("player"),	// the hand for the player
 	dealer = new Hand("dealer"),	// the hand for the dealer
@@ -207,29 +207,29 @@ window.onload = (function() {
 	startBank, bet,
 	gameOver = false, isReset = false,	// gameOver determines whether the player has run out of money or cashed out, isReset determines whether it's time to set up a new round
 	firstDealerCard;	// the element where the dealer's face-down card is stored
-	
+
 	deck.shuffle(); 	// the deck is shuffled at initialization
-	
+
 	newGameButton = document.getElementById("new_game");
 	hitButton = document.getElementById("hit");
 	standButton = document.getElementById("stand");
 	cashOutButton = document.getElementById("cash_out");
-	
+
 	newGameButton.addEventListener("click",buttonListener);
-	
+
 	/* -----------------------------------------------------------------------------
 	The following are the listeners used for reacting to appropriate events.
 	There is a single listener that handles all button clicks, buttonListener,
 	and a listener for 'Enter' key presses when necessary, inputHandler
 	*/
-	
+
 	// define what happens on a button click
 	function buttonListener(e) {
 		var button = e.target;
 		if (button.id == "new_game") {
 			toggleButton(button);
 			button.removeEventListener("click",buttonListener);
-			
+
 			if (gameOver) {
 				reset();
 				var input = document.getElementById("bank_input");
@@ -265,7 +265,7 @@ window.onload = (function() {
 		}
 		e.stopPropagation();
 	}
-	
+
 	// used for setting the bank and bets, listens for 'Enter' key presses
 	function inputHandler(e) {
 		var regex = /^(\d{1,4}|10000)$/;
@@ -291,11 +291,11 @@ window.onload = (function() {
 			e.preventDefault();
 		}
 	}
-	
+
 	/* ----------------------------------------------------------------------------
 	Set up some utility functions.
 	*/
-	
+
 	// create a DOM element with an optional given class
 	function makeEl(el, className) {
 		var elt = document.createElement(el);
@@ -336,7 +336,7 @@ window.onload = (function() {
 		points;
 		if (hand.player == "player") {
 			points = document.getElementById("p");
-			if (show) 
+			if (show)
 				points.innerText = "Player: " + val;
 			 else
 				 points.innerText = "";
@@ -360,7 +360,7 @@ window.onload = (function() {
 	function checkPlayerTurn() {
 		showPoints(player,true);
 		var val = player.getHandValue();
-		if (val > 21 || val == 21 || player.size() >= 5) 
+		if (val > 21 || val == 21 || player.size() >= 5)
 			return false;
 		else
 			return true;
@@ -383,16 +383,16 @@ window.onload = (function() {
 		betInput.addEventListener("keydown",inputHandler);
 		betInput.setAttribute("contenteditable","true");
 		betInput.focus();
-		
+
 		// deal the starting cards to each player
 		table.style.display = "block";
 		drawLabels(15,15,document.getElementById("card_panel"));
-		
+
 		player.addCard(deck.dealCard()); drawCard(player);
 		player.addCard(deck.dealCard()); drawCard(player);
 		dealer.addCard(deck.dealCard()); drawCard(dealer);
 		dealer.addCard(deck.dealCard()); drawCard(dealer);
-		
+
 		showPoints(player,true);
 	}
 	// gets the placed bet amount from the DOM element passed to it, if the bet
@@ -403,7 +403,7 @@ window.onload = (function() {
 	function setBet(ele) {
 		var funds = Number(bank.textContent);
 		bet = Number(ele.textContent);
-		
+
 		if (bet > funds)
 			throw new Error("You placed an invalid bet!");
 		else {
@@ -412,7 +412,7 @@ window.onload = (function() {
 			toggleButton(standButton);
 			hitButton.addEventListener("click",buttonListener);
 			standButton.addEventListener("click",buttonListener);
-			
+
 			if (checkPlayerTurn())
 				message.innerHTML = "<br />Click 'Hit' or 'Stand'";
 			 else
@@ -440,10 +440,10 @@ window.onload = (function() {
 		standButton.removeEventListener("click",buttonListener);
 		// show the first dealer card
 		showFirstDealerCard();
-		
+
 		var valD = dealer.getHandValue();
 		var valP = player.getHandValue();
-		
+
 		if (valD >= 16 || (valD < 16 && valP > 21)) {
 			if (valD == 21 || valD == valP || valD > valP || valP > 21) {
 				if (payout(false)) {
@@ -467,7 +467,7 @@ window.onload = (function() {
 				drawCard(dealer, false);
 				valD = dealer.getHandValue();
 			}
-		
+
 			if (valD > 21) {
 				message.innerHTML = "You Win " + valP + " to " + valD + "!" +
 				"<br />You get $" + (2*bet) +
@@ -493,7 +493,7 @@ window.onload = (function() {
 		}
 		showPoints(dealer,true);
 		isReset = true;
-		
+
 		if (!gameOver) {
 			toggleButton(cashOutButton);
 			cashOutButton.addEventListener("click",buttonListener);
@@ -501,12 +501,12 @@ window.onload = (function() {
 		toggleButton(newGameButton);
 		newGameButton.addEventListener("click",buttonListener);
 	}
-	
+
 	/* ----------------------------------------------------------------------------
 	The following functions are used to provide graphical representations of the
 	game elements.
 	*/
-	
+
 	// in position (x,y) in the given node this draws a vertical label for DEALER
 	// for dealer cards and PLAYER for player cards
 	function drawLabels(x,y,node) {
@@ -540,7 +540,7 @@ window.onload = (function() {
 			else
 				card.draw(ele, true);
 			row.appendChild(ele);
-			
+
 		} else if (hand.player == "player") {
 			row = document.getElementById("player");
 			card = hand.getCard(hand.size() - 1);
@@ -569,5 +569,5 @@ window.onload = (function() {
 		clearLabels();
 		return false;
 	}
-	
+
 })
