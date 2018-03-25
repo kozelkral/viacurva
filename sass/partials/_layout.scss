@@ -7,18 +7,20 @@ html, body {
 
 body {
     background: #777;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #under-construction {
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    margin: auto;
-    width: 800px;
-    height: 4em;
     font-size: 2em;
     color: #ddd;
     background-color: #333;
-    border-radius: 2px;
+    border-radius: .2em;
     text-align: center;
+
+    p {
+        display: inline-block;
+        padding: 2em;
+    }
 }
