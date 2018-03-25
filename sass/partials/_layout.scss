@@ -8,6 +8,16 @@ html, body {
 body {
     background: #777;
 }
+a {
+    color: #ddd;
+    text-decoration: none;
+    &:visited {
+        color: #ccc;
+    }
+    &:hover {
+        color: #eee;
+    }
+}
 
 .flex-center {
     display: flex;

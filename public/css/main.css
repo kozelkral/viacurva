@@ -9,6 +9,14 @@ html, body {
 body {
   background: #777; }
 
+a {
+  color: #ddd;
+  text-decoration: none; }
+  a:visited {
+    color: #ccc; }
+  a:hover {
+    color: #eee; }
+
 .flex-center {
   display: flex;
   justify-content: center;

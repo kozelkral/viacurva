@@ -19,6 +19,11 @@ server.get('/dev', function(req, res) {
     res.sendFile(publicPath + '/html/dev.html');
 });
 
+// Blackjack
+server.get('/dev/blackjack', function(req, res) {
+    res.sendFile(publicPath + '/html/blackjack.html');
+});
+
 // 404 errors
 server.use(function(req, res) {
     res.status(404).sendFile(publicPath + '/html/404.html');
