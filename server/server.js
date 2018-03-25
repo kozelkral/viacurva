@@ -14,6 +14,11 @@ server.get('/', function(req, res) {
     res.sendFile(publicPath + '/html/index.html');
 });
 
+// dev
+server.get('/dev', function(req, res) {
+    res.sendFile(publicPath + 'html/dev.html');
+});
+
 // 404 errors
 server.use(function(req, res) {
     res.status(404).sendFile(publicPath + '/html/404.html');
