@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+	<title>Blackjack</title>
+	<style>
+		body {
+			background: url("background.jpg") no-repeat fixed;
+			background-size: cover;
+			font-family: "Georgia", serif;
+			font-size: 1.2em;
+			color: white;
+			text-align: center;
+		}
+		#main_panel {
+			background: url("table.jpg") no-repeat;
+			background-size: cover;
+			width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+			overflow: hidden;
+		}
+		#card_panel {
+			width: 80%;
+			height: 500px;
+			float: left;
+			overflow: hidden;
+			border: 3px groove gray;
+			padding: 3px 0px 0px 3px;
+		}
+		#bank_input {
+			display: none;
+		}
+		#bet_input {
+			display: none;
+		}
+		#button_panel {
+			width: 18%;
+			height: 240px;
+			float: right;
+			margin-right: 3px;
+			border-bottom: 4px groove gray;
+		}
+		.button {
+			width: 95%;
+			border: 2px groove white;
+			background-color: rgb(50,50,50);
+			color: rgb(230,230,230);
+			cursor: pointer;
+			padding: 15px 0px;
+			margin-bottom: 2px;
+		}
+		.button:first-child {
+			margin-top: 3px;
+		}
+		.button-active:hover {
+			border-color: rgb(90,200,90);
+			color: rgb(90,200,90);
+		}
+		.button-clicked {
+			border-color: rgb(120,240,180);
+			color: rgb(120,240,180);
+		}
+		.button-disabled {
+			border-color: gray;
+			color: gray;
+			cursor: default;
+		}
+		#bet_panel {
+			width: 18%;
+			height: 200px;
+			float: right;
+			margin-right: 3px;
+		}
+		.bet-info {
+			width: 95%;
+			height: 15%;
+		}
+		.bet-info:first-child {
+			margin-top: 4px;
+		}
+		.input {
+			height: 1.4em;
+			width: 5em;
+			margin-left: auto;
+			margin-right: auto;
+			background: rgb(150,150,150);
+			border-radius: 4px;
+		}
+		#card_table {
+			float: right;
+			position: relative;
+			top: 35px;
+			width: 90%;
+			display: none;
+		}
+		#card_table table {
+			border-collapse: collapse;
+		}
+		#card_table th {
+			padding-bottom: 1.8em;
+			padding-right: 0.5em;
+		}
+		.card {
+			background-color: white;
+			width: 100px;
+			height: 125px;
+		}
+		.label {
+			position: relative;
+			float: left;
+		}
+		#message_wrapper {
+			min-height: 110px;
+			border-bottom: 1px solid white;
+		}
+	</style>
+	<script src="blackjack.js"></script>
+</head>
+
+<body>
+	<div id="main_panel">
+		<div id="card_panel">
+			<div id="message_wrapper">
+			<p id="message"><br />Click 'New Game' to begin!</p>
+			<div id="bank_input" class="input" contenteditable="true"></div>
+			</div>
+			
+			<div id="card_table">
+				<table>
+					<tr id="dealer"></tr>
+					<tr id="player"></tr>
+				</table>
+			</div>
+		
+		</div>
+		
+		<div id="button_panel">
+			<div id="new_game" class="button button-active">New Game</div>
+			<div id="hit" class="button button-disabled">Hit</div>
+			<div id="stand" class="button button-disabled">Stand</div>
+			<div id="cash_out" class="button button-disabled">Cash Out</div>
+		</div>
+		
+		<div id="bet_panel">
+			<div class="bet-info">Your Bet</div>
+			<div class="bet-info">
+				<div id="bet_input" class="input"></div>
+			</div>
+			<br />
+			<div class="bet-info">Your Bank</div>
+			<div class="bet-info"><p>$<span id="funds">0</span></p></div>
+			<div class="bet-info"><p><span id="p"></span><br />
+				<span id="d"></span></p></div>
+		</div>
+		
+	</div>
+</body>
