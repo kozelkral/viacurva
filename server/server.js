@@ -16,11 +16,11 @@ server.get('/', function(req, res) {
 
 // 404 errors
 server.use(function(req, res) {
-    res.status(404).send("404: Whoops, You're headed for a dead end!");
+    res.status(404).sendFile(publicPath + '/html/404.html');
 });
 // 500 errors
 server.use(function(req, res) {
-    res.status(500).send("500: Sorry, we must have messed something up!");
+    res.status(500).sendFile(publicPath + '/html/500.html');
 });
 
 server.listen(3333, 'localhost', function() {
