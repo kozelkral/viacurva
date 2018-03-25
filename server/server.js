@@ -16,7 +16,7 @@ server.get('/', function(req, res) {
 
 // dev
 server.get('/dev', function(req, res) {
-    res.sendFile(publicPath + 'html/dev.html');
+    res.sendFile(publicPath + '/html/dev.html');
 });
 
 // 404 errors
