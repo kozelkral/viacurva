@@ -37,10 +37,10 @@ ul {
   color: #eee;
   cursor: pointer; }
   .menu li {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     padding: 1em;
     margin: 0.2em;
-    flex-basis: 3em; }
+    min-width: 3em; }
     .menu li:hover {
       background: rgba(0, 0, 0, 0.6); }
 
@@ -48,9 +48,7 @@ ul {
   font-size: 2em;
   color: #ddd;
   background-color: #333;
-  border-radius: .2em;
-  text-align: center;
-  display: none; }
+  border-radius: .2em; }
   .message p {
     display: inline-block;
     padding: 2em; }

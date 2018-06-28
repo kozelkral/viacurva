@@ -43,10 +43,10 @@ ul {
     cursor: pointer;
 
     li {
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.7);
         padding: 1em;
         margin: 0.2em;
-        flex-basis: 3em;
+        min-width: 3em;
 
         &:hover {
             background: rgba(0,0,0,0.6);
@@ -59,8 +59,6 @@ ul {
     color: #ddd;
     background-color: #333;
     border-radius: .2em;
-    text-align: center;
-    display: none;
 
     p {
         display: inline-block;
