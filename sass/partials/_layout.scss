@@ -41,12 +41,13 @@ ul {
     font-size: 4em;
     color: #eee;
     cursor: pointer;
-    padding: 1em;
-    margin: 0.2em;
-    flex-basis: 3em;
-    
+
     li {
         background: rgba(0,0,0,0.5);
+        padding: 1em;
+        margin: 0.2em;
+        flex-basis: 3em;
+
         &:hover {
             background: rgba(0,0,0,0.6);
         }
@@ -59,6 +60,7 @@ ul {
     background-color: #333;
     border-radius: .2em;
     text-align: center;
+    display: none;
 
     p {
         display: inline-block;
