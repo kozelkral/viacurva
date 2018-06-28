@@ -3,10 +3,13 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
-
+html {
+    background: white;
+}
 body {
-    background: #777;
+    background: rgba(0,0,0,0.5);
 }
 a {
     color: #ddd;
@@ -25,10 +28,29 @@ ul {
     margin: 0;
 }
 
-.flex-center {
+.flex {
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+    &.center {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.menu {
+    font-size: 4em;
+    color: #eee;
+    cursor: pointer;
+    padding: 1em;
+    margin: 0.2em;
+    flex-basis: 3em;
+    
+    li {
+        background: rgba(0,0,0,0.5);
+        &:hover {
+            background: rgba(0,0,0,0.6);
+        }
+    }
 }
 
 .message {
