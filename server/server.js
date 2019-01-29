@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-var express = require('express');
-var path = require('path');
-var server = express();
+const express = require('express');
+const path = require('path');
+const server = express();
 
-var publicPath = path.join(__dirname, '..', 'public');
+const publicPath = path.join(__dirname, '..', 'public');
 
 // assets
 server.use(express.static(publicPath));
@@ -20,16 +20,16 @@ server.get('/dev', function(req, res) {
 });
 
 // Blackjack
-server.get('/dev/blackjack', function(req, res) {
+server.get('/blackjack', function(req, res) {
     res.sendFile(publicPath + '/html/blackjack.html');
 });
 
 // 404 errors
-server.use(function(req, res) {
+server.use(function(req, res, next) {
     res.status(404).sendFile(publicPath + '/html/404.html');
 });
 // 500 errors
-server.use(function(req, res) {
+server.use(function(err, req, res, next) {
     res.status(500).sendFile(publicPath + '/html/500.html');
 });
 
